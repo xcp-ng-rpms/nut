@@ -15,7 +15,7 @@
 Summary: Network UPS Tools
 Name: nut
 Version: 2.8.0
-Release: 2%{?dist}
+Release: 2.1%{?dist}
 License: GPLv2+ and GPLv3+
 Url: https://www.networkupstools.org/
 Source: https://www.networkupstools.org/source/2.8/%{name}-%{version}.tar.gz
@@ -128,14 +128,7 @@ This package contains the development header files and libraries
 necessary to develop NUT client applications.
 
 %prep
-%setup -q
-%patch1 -p1 -b .tmpfiles
-%patch2 -p1 -b .piddir-owner
-%patch8 -p1 -b .unreachable
-%patch9 -p1 -b .rmpidf
-%patch13 -p1
-%patch14 -p1
-%patch15 -p1
+%autosetup -p1
 
 sed -i 's|=NUT-Monitor|=nut-monitor|'  scripts/python/app/nut-monitor-py3qt5.desktop
 sed -i "s|sys.argv\[0\]|'%{_datadir}/%{name}/nut-monitor/nut-monitor'|" scripts/python/app/NUT-Monitor-py3qt5.in
@@ -459,6 +452,10 @@ fi
 %{_libdir}/pkgconfig/libnutscan.pc
 
 %changelog
+* Mon Mar 23 2026 Philippe Coval <philippe.coval@vates.tech> - 2.8.0-2.1
+- Rebuild with updated net-snmp (updated with OpenSSL 3)
+- Update obsolete patch macro
+
 * Tue Dec 06 2022 Michal Hlavinka <mhlavink@redhat.com> - 2.8.0-2
 - fix STATEPATH location and creation (#2024651)
 - merged C99 related changes to configure from fedora
