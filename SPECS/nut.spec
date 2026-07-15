@@ -15,7 +15,7 @@
 Summary: Network UPS Tools
 Name: nut
 Version: 2.8.0
-Release: 2.1%{?dist}
+Release: 2.2%{?dist}
 License: GPLv2+ and GPLv3+
 Url: https://www.networkupstools.org/
 Source: https://www.networkupstools.org/source/2.8/%{name}-%{version}.tar.gz
@@ -452,6 +452,9 @@ fi
 %{_libdir}/pkgconfig/libnutscan.pc
 
 %changelog
+* Wed Jul 15 2026 Philippe Coval <philippe.coval@vates.tech> - 2.8.0-2.2
+- Rebuild on updated gnutls, neon
+
 * Mon Mar 23 2026 Philippe Coval <philippe.coval@vates.tech> - 2.8.0-2.1
 - Rebuild with updated net-snmp (updated with OpenSSL 3)
 - Update obsolete patch macro
